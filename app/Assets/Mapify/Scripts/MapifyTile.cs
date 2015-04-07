@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class LevelElement {
+public class MapifyTile {
   public string Glyph;
   public bool IsStatic = true;
   public GameObject Prefab;

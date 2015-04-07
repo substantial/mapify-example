@@ -1,19 +1,21 @@
 using UnityEngine;
 using System.Collections;
 
+public enum MapifyLayout
+{
+  Horizontal,
+  Vertical
+};
+
 public class Mapify {
-  public static GameObject Create(LevelDefinition levelDefinition) {
-    var position = Vector3.zero;
-    return Create(levelDefinition, position);
+  private const float DEFAULT_TILE_OFFSET = 1.0f;
+  private const MapifyLayout DEFAULT_LAYOUT = MapifyLayout.Horizontal;
+
+  public static void Generate(string map, Transform container, MapifyTileRepository tileRepository) {
+    Generate(map, container, tileRepository, DEFAULT_TILE_OFFSET, DEFAULT_LAYOUT);
   }
 
-  public static GameObject Create(LevelDefinition levelDefinition, Vector3 position) {
-    var instance = GameObject.Instantiate(Prefab, position, Quaternion.identity) as GameObject;
-    instance.GetComponent<LevelInitializer>().Initialize(levelDefinition);
-    return instance;
-  }
-
-  private static GameObject Prefab {
-    get { return LevelPrefabRepository.Instance.LevelPrefab; }
+  public static void Generate(string map, Transform container, MapifyTileRepository tileRepository, float tileOffset, MapifyLayout mapifyLayout) {
+    new MapifyLevelPopulator(map, container, tileRepository, tileOffset, mapifyLayout).Populate();
   }
 }
