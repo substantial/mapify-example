@@ -1,6 +1,6 @@
 # mapify-example
 
-An example of using Mapify in an Unity app.
+An example of using [Mapify](http://github.com/substantial/mapify) in an Unity app.
 
 # Spoilers!
 
