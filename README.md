@@ -40,6 +40,9 @@ xxxxxxxxxxxxx
 ```
 test.txt
 
+# Wire it together with a tile repository
+![Tile Repository](https://raw.githubusercontent.com/substantial/mapify-example/master/screens/tile-repository.png)
+
 # Results screenshot
 
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/substantial/mapify-example/master/screens/screenshot.png)
