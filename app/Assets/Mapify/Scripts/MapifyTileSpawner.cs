@@ -4,6 +4,8 @@ using System.Collections;
 
 public class MapifyTileSpawner {
   public static GameObject Create(MapifyTile tile, Vector3 position, Transform parent) {
-    return GameObject.Instantiate(tile.Prefab, position, tile.Rotation) as GameObject;
+    var instance = GameObject.Instantiate(tile.Prefab, position, tile.Rotation) as GameObject;
+    instance.transform.parent = parent;
+    return instance;
   }
 }
