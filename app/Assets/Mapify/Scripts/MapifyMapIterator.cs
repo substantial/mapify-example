@@ -4,40 +4,21 @@ using System.Collections;
 
 public class MapifyMapIterator {
   private string[] map;
-  private float tileOffset;
-  private float halfTileOffset;
-  private MapifyLayout mapifyLayout;
+  private MapifyLocalPositionCalculator localPositionCalculator;
 
-  public MapifyMapIterator(string[] map, float tileOffset, MapifyLayout mapifyLayout) {
+  public MapifyMapIterator(string[] map, MapifyLocalPositionCalculator localPositionCalculator) {
     this.map = map;
-    this.tileOffset = tileOffset;
-    this.halfTileOffset = tileOffset / 2;
-    this.mapifyLayout = mapifyLayout;
+    this.localPositionCalculator = localPositionCalculator;
   }
 
   public void Iterate(Action<char, Vector3> callback) {
     for (var y = 0; y < map.Length; y++) {
       var line = map[y];
-      var centerYOffset = CenterOffset(map.Length);
       for (var x = 0; x < line.Length; x++) {
         var character = line[x];
-        var centerXOffset = CenterOffset(line.Length);
-        var position = CalculatePosition(
-            x * tileOffset + centerXOffset + halfTileOffset, 
-            y * tileOffset + centerYOffset + halfTileOffset);
-        callback(character, position);
+        var localPosition = localPositionCalculator.Calculate(x, y, map.Length, line.Length);
+        callback(character, localPosition);
       }
     }
-  }
-
-  private Vector3 CalculatePosition(float x, float y) {
-    if (mapifyLayout == MapifyLayout.Horizontal) {
-      return new Vector3(x, 0, y);
-    } 
-    return new Vector3(x, y, 0);
-  }
-
-  private float CenterOffset(int cellsInRow) {
-    return -tileOffset * cellsInRow / 2;
   }
 }
