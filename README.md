@@ -41,7 +41,7 @@ xxxxxxxxxxxxx
 test.txt
 
 # Wire it together with a tile repository
-![Tile Repository](https://raw.githubusercontent.com/substantial/mapify-example/master/screens/tile-repository.png)
+![Tile Repository](https://raw.githubusercontent.com/substantial/mapify-example/master/screens/wired.png)
 
 # Results screenshot
 
