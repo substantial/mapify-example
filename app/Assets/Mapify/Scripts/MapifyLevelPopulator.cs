@@ -30,8 +30,8 @@ public class MapifyLevelPopulator {
             x * tileOffset + centerXOffset + halfCellOffset, 
             y * tileOffset + centerYOffset + halfCellOffset,
             0);
-        var tile = tileRepository.Find(character);
-        if (tile != null) {
+        if (tileRepository.HasKey(character)) {
+          var tile = tileRepository.Find(character);
           MapifyTileSpawner.Create(tile, position, container);
         }
       }
