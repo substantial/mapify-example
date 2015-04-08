@@ -15,9 +15,9 @@ public class MapifyLevelPopulator {
 
   public void Populate() {
     mapIterator.Iterate((character, localPosition) => {
-        var worldPosition = container.TransformPoint(localPosition);
         if (tileRepository.HasKey(character)) {
           var tile = tileRepository.Find(character);
+          var worldPosition = container.TransformPoint(localPosition);
           MapifyTileSpawner.Create(tile, worldPosition, container);
         }
     });
