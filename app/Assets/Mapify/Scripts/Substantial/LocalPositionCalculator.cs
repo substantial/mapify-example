@@ -5,9 +5,9 @@ namespace Substantial {
   public class LocalPositionCalculator {
     private float tileOffset;
     private float halfTileOffset;
-    private Layout layout;
+    private MapifyLayout layout;
 
-    public LocalPositionCalculator(float tileOffset, Layout layout) {
+    public LocalPositionCalculator(float tileOffset, MapifyLayout layout) {
       this.tileOffset = tileOffset;
       this.halfTileOffset = tileOffset / 2.0f;
       this.layout = layout;
@@ -21,7 +21,7 @@ namespace Substantial {
     }
 
     private Vector3 AdjustToLayout(float x, float y) {
-      if (layout == Layout.Horizontal) {
+      if (layout == MapifyLayout.Horizontal) {
         return new Vector3(x, 0, y);
       } 
       return new Vector3(x, y, 0);
