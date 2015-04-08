@@ -8,6 +8,6 @@ public class GameInitializer : MonoBehaviour {
   public float TileOffset = 1.0f;
 
   private void Start() {
-    Mapify.Generate(LevelAsset.text, LevelContainer, MapifyTileRepository, TileOffset, MapifyLayout.Horizontal);
+    Mapify.Generate(LevelAsset.text, LevelContainer, MapifyTileRepository, TileOffset, MapifyLayout.Vertical);
   }
 }
