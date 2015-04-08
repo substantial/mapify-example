@@ -4,8 +4,8 @@ using System.Collections;
 [System.Serializable]
 public class MapifyTile {
   public string Glyph;
-  public bool IsStatic = true;
   public GameObject Prefab;
+
   [Header("RandomPlacement")]
   public Vector3 MinPosition;
   public Vector3 MaxPosition;
